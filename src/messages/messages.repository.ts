@@ -1,5 +1,8 @@
+import { Injectable } from '@nestjs/common';
 import {readFile,writeFile} from 'fs/promises'
 
+// To add dependency need to add below decorator, in contructor  use injacteble class and in Module providers list.
+@Injectable()
 export class MessagesRepository{
     async findOne(id:string){
         const contents= await readFile('src/messages/DB data/messages.json','utf-8');
